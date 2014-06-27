@@ -22,9 +22,10 @@ class CreateCardTables extends Migration {
         Schema::create('cards', function($table){
             $table->increments('id');
             $table->string('name')->index();
-            $table->string('text');
+            $table->string('text')->nullable();
             $table->string('rarity');
-            $table->string('mana_cost');
+            $table->string('mana_cost')->nullable();
+            $table->string('type');
             $table->integer('set')->unsigned()->index();
             $table->foreign('set')->references('id')->on('sets');
             $table->integer('multiverseid')->index();
