@@ -2,10 +2,10 @@
 
 class Card extends Eloquent {
     public function set() {
-        $this->hasOne('Set');
+        return $this->belongsTo('Set');
     }
 
     public function mcmData() {
-        $this->hasOne('McmData');
+        return $this->hasOne('McmData');
     }
 }

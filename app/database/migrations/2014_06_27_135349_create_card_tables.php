@@ -26,9 +26,9 @@ class CreateCardTables extends Migration {
             $table->string('rarity');
             $table->string('mana_cost')->nullable();
             $table->string('type');
-            $table->integer('set')->unsigned()->index();
-            $table->foreign('set')->references('id')->on('sets');
-            $table->integer('multiverseid')->index();
+            $table->integer('set_id')->unsigned()->index();
+            $table->foreign('set_id')->references('id')->on('sets');
+            $table->integer('multiverseid')->nullable()->index();
         });
 
         Schema::create('mcm_data', function($table){

@@ -1,13 +1,13 @@
 <?php
 $callback = Input::get('callback');
-$query = Input::get('q');
-$queryResult =  Card::where('name', 'like', '%'.$query.'%')->get();
+$query = Input::get('term');
+$queryResult =  Card::where('name', 'like', '%'.$query.'%')->with(
+    array('set' => function($query){
+        $query->select('id', 'name');
+    }))->limit(100)->get(array('id','name','set_id'));
 
-$result = $callback . "([";
-foreach( $queryResult as $token ) {
-    $result .= '"' . $token->name . ' - ' . Set::find($token->set)->name . '",';
+foreach( $queryResult as $resultToken ) {
+    $result[] = array('value' => $resultToken->name . ' (' . $resultToken->set->name . ')', 'id' => $resultToken->id );
 }
 
-$result .= "]);";
-
-echo $result;
+echo(json_encode($result));

@@ -20,22 +20,11 @@
             }
 
             $( "#card-name" ).autocomplete({
-                source: function( request, response ) {
-                    $.ajax({
-                        url: "/cards",
-                        dataType: "jsonp",
-                        data: {
-                            q: request.term
-                        },
-                        success: function( data ) {
-                            response( data );
-                        }
-                    });
-                },
+                source: "/cards",
                 minLength: 3,
                 select: function( event, ui ) {
                     log( ui.item ?
-                        "Selected: " + ui.item.label :
+                        "Selected: " + ui.item.id :
                         "Nothing selected, input was " + this.value);
                 },
                 open: function() {

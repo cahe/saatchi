@@ -70,8 +70,10 @@ class SynchronizeCards extends Command {
                             $_card->text = $card->text;
                         }
                         $_card->rarity = $card->rarity;
-                        $_card->multiverseid = $card->multiverseid;
-                        $_card->set = $_set->id; //get set inserted id
+                        if( property_exists ( $card , 'multiverseid' ) ) {
+                            $_card->multiverseid = $card->multiverseid;
+                        }
+                        $_card->set_id = $_set->id; //get set inserted id
                         if( property_exists ( $card , 'manaCost' ) ) {
                             $_card->mana_cost = $card->manaCost;
                         }
