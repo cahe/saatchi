@@ -26,6 +26,9 @@
                     log( ui.item ?
                         "Selected: " + ui.item.id :
                         "Nothing selected, input was " + this.value);
+
+                    $("#card-name").val("");
+                    return false;
                 },
                 open: function() {
                     $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
