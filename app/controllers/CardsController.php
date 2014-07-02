@@ -87,8 +87,8 @@ class CardsController extends \BaseController {
 		return Datatable::query(DB::table('cards')
 		->select('cards.id', 'cards.name', 'sets.name as setname')
 		->join('sets', 'cards.set_id', '=', 'sets.id'))
-		->showColumns('id', 'name','setname','sell')
-		->searchColumns('id','cards.name')
+		->showColumns('id', 'name','setname')
+		->searchColumns('cards.id','cards.name','sets.name')
 		->setSearchWithAlias()
 		->addColumn('sell',function($model)	{
 				return '<a class="popup_dodaj" name="popup_dodaj" id ="'.$model->name.'" >dodaj kartę</a>';

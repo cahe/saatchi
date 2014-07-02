@@ -25,7 +25,7 @@
         <tr>
             @foreach($columns as $i => $c)
             <th align="center" valign="middle" class="head{{ $i }}">
-                <input type="text" name="{{$c}}" value="{{$c}}" class="search_init">
+                <input type="text" name="{{$c}}" value="" class="search_init">
             </th>
             @endforeach
         </tr>
