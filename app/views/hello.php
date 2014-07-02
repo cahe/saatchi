@@ -36,7 +36,11 @@
                 close: function() {
                     $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
                 }
-            });
+            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+                return $( "<li>" )
+                    .append( '<div style="margin-left: 10px; float: right"><img src="'+ item.set_image +'" style="height: 16px"/></div> ' + item.value)
+                    .appendTo( ul );
+            };
         });
     </script>
 </head>
