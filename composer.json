@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"doctrine/dbal": "2.3.4"
+		"doctrine/dbal": "2.3.4",
+		"chumper/datatable": "2.*"
 	},
 	"autoload": {
 		"classmap": [

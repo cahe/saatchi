@@ -19,3 +19,6 @@ Route::get('/cards', function()
 {
     return View::make('cards');
 });
+
+Route::resource('cards_dt', 'CardsController');
+Route::get('api/cards', array('as'=>'api.cards', 'uses'=>'CardsController@getDatatable'));
