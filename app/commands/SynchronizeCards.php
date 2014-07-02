@@ -71,7 +71,7 @@ class SynchronizeCards extends Command {
 
                 if( property_exists($cards, 'onlineOnly') ) {
                     if( $cards->onlineOnly === true ) {
-                        println("Not importing, online only.")
+                        println("Not importing, online only.");
                         continue; //import only paper sets
                     }
                 }
